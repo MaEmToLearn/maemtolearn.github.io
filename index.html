@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image Conversion Service</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="bar">
+  <span></span>
+  <nav>
+    <a href="#main">Main</a>
+    <a href="#concurrency">Concurrency</a>
+    <a href="#techstack">Tech Stack</a>
+    <a href="https://github.com/ec-mentors/project-module-MaEmToLearn">GitHub</a>
+  </nav>
+</header>
+
+<main>
+
+  <section id="main">
+    <h1>ImageConverter</h1>
+    <p class="note">
+      An image conversion service
+      A Spring Boot project with user accounts, images in object storage, job state in Postgres, and a worker pool that converts files concurrently.
+    </p>
+
+    <div class="ph ph--wide">PLACEHOLDER MAIN DIAGRAM (request lifecycle)</div>
+  </section>
+
+  <section id="concurrency">
+    <h2>Converting several images at once</h2>
+
+    <div class="split">
+      <div class="ph ph--tall">PLACEHOLDER CONCURRENCY DIAGRAM (poller/worker ecosystem)</div>
+
+      <div>
+        <ul class="note">
+          <li>why conversion can't happen on the request thread</li>
+          <li>what is the workflow for handing off tasks</li>
+          <li>how many conversions run at once, and why that number is fixed</li>
+          <li>Image I/O now, libvips later — where the seam is</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="techstack">
+    <h2>Tech Stack</h2>
+
+    <div class="cols">
+
+      <article>
+        <div class="ph ph--sm">PLACEHOLDER (Cloudflare icon sketch)</div>
+        <h3>Cloudflare R2</h3>
+        <ul class="note">
+          <li>why not locally saved?</li>
+          <li>why Cloudflare R2 and not Amazon S3</li>
+        </ul>
+      </article>
+
+      <article>
+        <div class="ph ph--sm">PLACEHOLDER (Postgres icon sketch)</div>
+        <h3>PostgreSQL</h3>
+        <ul class="note">
+          <li>Gonna skip that we were basically forced to use it</li>
+          <li>Why Postgres is useful for the concurrency queue</li>
+          <li>Schema first approach and how Postgres makes it easy to prevent invalid states</li>
+        </ul>
+      </article>
+
+      <article>
+        <div class="ph ph--sm">PLACEHOLDER (Java icon sketch)</div>
+        <h3>Java Image I/O</h3>
+        <ul class="note">
+          <li>Why it sucks and is only a placeholder</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
