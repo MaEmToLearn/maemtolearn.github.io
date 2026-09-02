@@ -10,12 +10,12 @@
     --padding: 2rem;
     --padding-code-block: 1rem;
     --margin: 2rem;
-    
+
     --gap-page: 3rem;
     --gap-columns-pc: 5rem;
     --gap-columns-mobile: 2.5rem;
     --gap-text: 1rem;
-    
+
     --size-navbar: 5svh;
     --size-page: calc(100svh - var(--size-navbar));
 }
@@ -26,8 +26,6 @@
 
 * {
     box-sizing: border-box;
-    min-height: 0;
-    min-width: 0;
     margin: 0;
     padding: 0;
 }
@@ -55,21 +53,6 @@ pre code {
     display: flex;
 }
 
-/* =========================== */
-/* ===== General Purpose ===== */
-/* =========================== */
-
-.column-view {
-    display: flex;
-    gap: var(--gap-columns-pc);
-}
-
-.text-block {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-text);
-}
-
 /* =================== */
 /* ===== Nav Bar ===== */
 /* =================== */
@@ -92,71 +75,74 @@ pre code {
     gap: var(--gap-text);
 }
 
-/* ==================== */
-/* ===== Overview ===== */
-/* ==================== */
+/* ======================= */
+/* ===== Page Layout ===== */
+/* ======================= */
 
-.overview {
+.page {
     display: flex;
     flex-direction: column;
     height: var(--size-page);
+    width: 100%;
     padding: var(--padding);
     border-bottom: 1px solid var(--color-fg);
     gap: var(--gap-page);
 }
 
-.overview__img {
+.column-view {
+    display: flex;
+    gap: var(--gap-columns-pc);
+    min-height: 0;
+}
+
+/* ================== */
+/* ===== Images ===== */
+/* ================== */
+
+.scaling-img {
     display: block;
-    max-width: 100%;
     object-fit: contain;
-    flex: 0 1 auto;
+    min-width: 0;
 }
 
-.overview__text {
-    flex: 1 1 0;
+.vertical-img {
+    max-height: 75svh;
 }
 
 /* ======================= */
-/* ===== Concurrency ===== */
+/* ===== Text Blocks ===== */
 /* ======================= */
 
-.concurrency {
+.text-block {
     display: flex;
     flex-direction: column;
-    height: var(--size-page);
-    padding: var(--padding);
-    border-bottom: 1px solid var(--color-fg);
-    gap: var(--gap-page);
+    gap: var(--gap-text);
 }
 
-.concurrency__img {
-    display: block;
-    max-width: 100%;
-    object-fit: contain;
-    flex: 0 1 auto;
+.minor-block {
+    flex: 1 0.5 33%;
 }
 
-.concurrency__text {
-    flex: 1 1 0;
+.major-block {
+    flex: 1 2 67%;
 }
 
 /* ====================== */
 /* ===== Responsive ===== */
 /* ====================== */
 
-@media (max-width: 800px) {
-    .overview, .concurrency {
+@media (max-width: 900px) {
+    .page {
         height: auto;
         min-height: var(--size-page);
     }
-    
+
     .column-view {
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: var(--gap-columns-mobile);
     }
 
-    .overview__img,
-    .concurrency__img {
+    .scaling-img {
         width: 100%;
     }
 }
