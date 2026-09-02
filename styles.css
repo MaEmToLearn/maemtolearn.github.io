@@ -13,7 +13,7 @@
 
     --gap-page: 3rem;
     --gap-columns-pc: 5rem;
-    --gap-columns-mobile: 2.5rem;
+    --gap-columns-mobile: var(--padding);
     --gap-text: 1rem;
 
     --size-navbar: 5svh;
@@ -131,10 +131,10 @@ pre code {
 /* ===== Responsive ===== */
 /* ====================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
     .page {
         height: auto;
-        min-height: var(--size-page);
+        gap: var(--gap-columns-mobile)
     }
 
     .column-view {
@@ -144,5 +144,6 @@ pre code {
 
     .scaling-img {
         width: 100%;
+        flex: 1 1 auto;
     }
 }
