@@ -43,7 +43,8 @@
     --padding-nav: 1rem;
     --gap-page: var(--padding-thin);    /*clamp(0.75rem, 1vw, 1.5rem);*/
     --gap-columns: var(--padding);      /*clamp(1rem, 5vw, 5rem);*/
-    --gap-text: 1rem;
+    --gap-text-pc: clamp(0.5rem, 1.1vw, 1rem);
+    --gap-text-mobile: 0.75rem;
 
     /* Images */
     --max-size-vertical-img: 75svh;
@@ -200,7 +201,7 @@ pre code {
 .text-block {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-text);
+    gap: var(--gap-text-pc);
 }
 
 .minor-block {
@@ -227,5 +228,9 @@ pre code {
     .scaling-img {
         width: 100%;
         flex: 1 1 auto;
+    }
+
+    .text-block {
+        gap: var(--gap-text-mobile);
     }
 }
