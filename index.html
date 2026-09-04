@@ -55,7 +55,8 @@
         <h2>Concurrency: Converting multiple images at once</h2>
 
         <div class="column-view">
-            <img class="scaling-img vertical-img" alt="Concurrency Visualized" src="/img/concurrency.jpg">
+            <img class="scaling-img vertical-img" alt="Concurrency Visualized"
+                 src="/img/concurrency.jpg">
 
             <div class="text-block major-block">
                 <p>
@@ -80,12 +81,12 @@
                     The first part <code>FOR UPDATE</code> ensures rows returned by
                     <code>SELECT</code> are locked for modification (incl. further locking) for the
                     duration of the transaction. However, because <code>FOR UPDATE</code> is a
-                    locker, it itself gets stalled by locked row matches. The exact opposite of what
+                    locker itself, it gets stalled by locked row matches. The exact opposite of what
                     we want for concurrent workers. <code>FOR UPDATE SKIP LOCKED</code> sidesteps
                     this issue by ignoring locked rows entirely as if they don't exist.
                 </p>
                 <p>
-                    This way we the database both ensures tasks get locked to prevent double claims,
+                    This way the database both ensures tasks get locked to prevent double claims,
                     but also continued immediate access for new worker queries.
                 </p>
             </div>
