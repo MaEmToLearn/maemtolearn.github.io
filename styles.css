@@ -11,10 +11,10 @@
     --color-nav-bg: var(--color-fg);
     --color-nav-fg: var(--color-code-fg);
     --color-code-bg: var(--color-fg);
-    --color-code-fg: #e7d9b9;
+    --color-code-fg: #d8c292; /* Old value: #ead5a5 */
     --color-border: #b6b7bd;
     --color-shadow: #ddd4ca;
-    --color-accent: #2f6690;
+    --color-accent: #2F73A8;
     --color-img-bg: #fff;
 
     /* Page sizing */
