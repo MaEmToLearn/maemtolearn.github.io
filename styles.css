@@ -24,11 +24,12 @@
 
     /* Text */
     --font-size: clamp(16px, 1.2vw, 21px);
-    --font-size-h: clamp(32px, 4vw, 48px);
     --font-size-nav: 16px;
     --font-sans: 'Inter';
     --font-mono: 'JetBrains Mono';
     --font-headers: 'Space Grotesk';
+    --font-size-h1: clamp(32px, 4vw, 48px);
+    --font-size-h2: clamp(22px, 3vw, 38px);
     --font-size-code-ratio: 0.9;
     --line-height: 1.75;
     --border-radius-code: 0.25rem;
@@ -81,11 +82,11 @@ h1, h2 {
 }
 
 h1 {
-    font-size: var(--font-size-h);
+    font-size: var(--font-size-h1);
 }
 
 h2 {
-    font-size: calc(var(--font-size-h) - 1vw); /*clamp(1.5rem, 3vw, 2.25rem);*/
+    font-size: var(--font-size-h2); /*clamp(1.5rem, 3vw, 2.25rem);*/
 }
 
 a {
