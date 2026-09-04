@@ -39,7 +39,7 @@
     /* Spacing */
     --padding: clamp(2rem, 4vw, 4rem);
     --padding-thin: clamp(1rem, 1.5vw, 2rem);
-    --padding-code-block: 1rem;
+    --padding-code-block: 0.75rem;
     --padding-code-vertical: 0.15rem;
     --padding-code-horizontal: 0.4rem;
     --padding-nav: 1rem;
@@ -120,7 +120,7 @@ code {
     color: var(--color-code-fg);
     border-radius: var(--border-radius-code);
     padding: var(--padding-code-vertical) var(--padding-code-horizontal);
-    word-wrap: break-word;
+    text-wrap: nowrap;
 }
 
 pre code {
