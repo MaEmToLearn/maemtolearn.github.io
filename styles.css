@@ -45,6 +45,7 @@
     --padding-nav: 1rem;
     --gap-page: var(--padding-thin);    /*clamp(0.75rem, 1vw, 1.5rem);*/
     --gap-columns: var(--padding);      /*clamp(1rem, 5vw, 5rem);*/
+    --gap-nav-links: 1rem;
     --gap-text-pc: clamp(0.5rem, 1.1vw, 1rem);
     --gap-text-mobile: 0.75rem;
 
@@ -145,7 +146,7 @@ pre code {
 
 .navbar__links {
     display: flex;
-    gap: var(--gap-text);
+    gap: var(--gap-nav-links);
     align-items: center;
     font-family: var(--font-mono), monospace;
     font-size: var(--font-size-nav);
