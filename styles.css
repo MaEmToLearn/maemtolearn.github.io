@@ -58,7 +58,7 @@ pre code {
 /* =================== */
 
 .navbar {
-    background-color: white;
+    background-color: var(--color-bg);
     display: flex;
     justify-content: space-between;
     align-content: center;
