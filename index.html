@@ -43,9 +43,16 @@
             <img class="scaling-img vertical-img" alt="Concurrency Visualized" src="/img/concurrency.jpg">
 
             <div class="text-block major-block">
-                <p>But even more importantly: Postgres is a vital part of my approach to
-                    concurrency. The task table acts as the queue for my workers. This is where
-                    Postgres truly shines with the following magical syntax:</p>
+                <p>
+                    At the heart of the project is a group of concurrently running conversion
+                    workers. These workers are handled by a ThreadPoolTaskScheduler and get
+                    continuously rescheduled, with a back-off delay if the queue has run dry.
+                </p>
+                <p>
+                    Postgres plays a vital part in my approach to concurrency, with the task table
+                    acting as a queue for my workers. This is where Postgres truly shines with the
+                    following magical syntax:
+                </p>
                 <pre><code>FOR UPDATE SKIP LOCKED</code></pre>
                 <p>Four words that prevent</p>
                 <ul>
@@ -54,14 +61,18 @@
                     <li>Getting stalled by locked rows (compared to plain <code>FOR UPDATE</code>)
                     </li>
                 </ul>
-                <p>The first part <code>FOR UPDATE</code> ensures rows returned by
+                <p>
+                    The first part <code>FOR UPDATE</code> ensures rows returned by
                     <code>SELECT</code> are locked for modification (incl. further locking) for the
                     duration of the transaction. However, because <code>FOR UPDATE</code> is a
                     locker, it itself gets stalled by locked row matches. The exact opposite of what
                     we want for concurrent workers. <code>FOR UPDATE SKIP LOCKED</code> sidesteps
-                    this issue by ignoring locked rows entirely as if they don't exist.</p>
-                <p>This way we can both ensure tasks get locked to prevent double claims, but also
-                    continued immediate access for new worker queries.</p>
+                    this issue by ignoring locked rows entirely as if they don't exist.
+                </p>
+                <p>
+                    This way we the database both ensures tasks get locked to prevent double claims,
+                    but also continued immediate access for new worker queries.
+                </p>
             </div>
         </div>
     </section>
