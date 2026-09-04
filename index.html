@@ -24,10 +24,28 @@
         <div class="column-view">
             <div class="text-block minor-block">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus dolor a nulla aliquet viverra. Fusce non libero, ac rutrum libero. Sed vehicula felis scelerisque congue viverra. Ut id augue augue. Quisque at quam at velit auctor pharetra. Donec auctor ligula sit amet imperdiet bibendum. In nulla risus, tristique dictum viverra sed, eleifend ut tellus. Nam non leo libero.
+                    This project (name pending) is a backend implementation of an online image
+                    conversion service. Utilizing Spring Boot, Spring Security, PostgreSQL and
+                    Cloudflare's R2, it offers a solid foundation for helping users convert their
+                    personal images at scale.
                 </p>
                 <p>
-                    Donec felis ligula, laoreet id diam et, efficitur placerat arcu. Nullam fringilla, ex ut elementum dignissim, leo risus auctor nulla, ut pellentesque diam purus quis lacus. Proin tellus ipsum, efficitur consectetur mi eu, lacinia dignissim arcu. Vestibulum quis felis in purus fringilla fermentum. Morbi ut blandit urna.
+                    For higher throughput, conversions are done concurrently by the server. Multiple
+                    workers are continuously scheduled and query submitted conversion tasks directly
+                    from the database, which acts as the task queue (see
+                    <a href="#concurrency">Concurrency</a>).
+                </p>
+                <p>
+                    Users need an account to access the service and can optionally acquire a product
+                    key to upgrade their account to premium for unlimited conversions each week. The
+                    whole user ecosystem is secured via Spring Security.
+                </p>
+                <p>
+                    Image storage is handled exclusively by Cloudflare's R2 object storage service
+                    (S3-compliant).
+                </p>
+                <p>
+
                 </p>
 
             </div>
