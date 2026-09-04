@@ -23,13 +23,13 @@
     --scaling-min-col: 0.5;
 
     /* Text */
-    --font-size: clamp(16px, 1.2vw, 21px);
-    --font-size-nav: 16px;
     --font-sans: 'Inter';
     --font-mono: 'JetBrains Mono';
     --font-headers: 'Space Grotesk';
+    --font-size: clamp(15px, 1.1vw, 21px);
     --font-size-h1: clamp(32px, 4vw, 48px);
     --font-size-h2: clamp(22px, 3vw, 38px);
+    --font-size-nav: 15px;
     --font-size-code-ratio: 0.9;
     --line-height: 1.75;
     --border-radius-code: 0.25rem;
