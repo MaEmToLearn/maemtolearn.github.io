@@ -218,7 +218,7 @@ pre code {
     border: none;
 }
 
-[popover] img {    
+[popover] img {
     display: block;
     object-fit: contain;
     max-height: calc(100svh - var(--size-nav));

@@ -75,6 +75,7 @@
                     workers. These workers are handled by a ThreadPoolTaskScheduler and get
                     continuously rescheduled, with a back-off delay if the queue has run dry.
                 </p>
+
                 <p>
                     Postgres plays a vital part in my approach to concurrency, with the task table
                     acting as a queue for the workers. This is where Postgres truly shines with the
@@ -100,6 +101,7 @@
                     we want for concurrent access. <code>FOR UPDATE SKIP LOCKED</code> sidesteps
                     this issue by ignoring locked rows entirely as if they don't exist.
                 </p>
+
                 <p>
                     This way the database both locks tasks to prevent double claims, but also
                     continues to provide immediate access for new worker queries.
