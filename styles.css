@@ -8,6 +8,7 @@
     /* Colors */
     --color-bg: #f5f2ea;
     --color-fg: #1e2a33;
+    --color-popover-backdrop: #000000bf; /* Transparent black looks better as overlay than fg color */
     --color-nav-bg: var(--color-fg);
     --color-nav-fg: var(--color-code-fg);
     --color-code-bg: var(--color-fg);
@@ -196,6 +197,36 @@ pre code {
 
 .vertical-img {
     max-height: var(--max-size-vertical-img);
+}
+
+/* ==================== */
+/* ===== Popovers ===== */
+/* ==================== */
+
+.popover-open {
+    display: contents;
+    cursor: zoom-in;
+}
+
+.popover-close {
+    display: contents;
+    cursor: zoom-out;
+}
+
+[popover] {
+    margin: auto;
+    border: none;
+}
+
+[popover] img {    
+    display: block;
+    object-fit: contain;
+    max-height: calc(100svh - var(--size-nav));
+    max-width: 100%;
+}
+
+[popover]::backdrop {
+    background: var(--color-popover-backdrop);
 }
 
 /* ======================= */

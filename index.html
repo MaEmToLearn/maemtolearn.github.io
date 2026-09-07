@@ -46,7 +46,17 @@
                 </p>
             </div>
 
-            <img alt="Architectural Overview" class="scaling-img" src="/img/overview.png">
+            <button class="popover-open" popovertarget="popover-overview" type="button">
+                <img alt="Architectural Overview" class="scaling-img" src="/img/overview.png">
+            </button>
+        </div>
+
+        <div id="popover-overview" popover>
+            <button class="popover-close" popovertarget="popover-overview"
+                    popovertargetaction="hide" type="button">
+                <img alt="Architectural Overview (enlarged - click to close)"
+                     src="/img/overview.png">
+            </button>
         </div>
     </section>
 
@@ -54,8 +64,10 @@
         <h2>Concurrency: Converting multiple images at once</h2>
 
         <div class="column-view">
-            <img alt="Concurrency Visualized" class="scaling-img vertical-img"
-                 src="/img/concurrency.jpg">
+            <button class="popover-open" popovertarget="popover-concurrency" type="button">
+                <img alt="Concurrency Visualized" class="scaling-img vertical-img"
+                     src="/img/concurrency.jpg">
+            </button>
 
             <div class="text-block major-block">
                 <p>
@@ -93,6 +105,14 @@
                     continues to provide immediate access for new worker queries.
                 </p>
             </div>
+        </div>
+
+        <div id="popover-concurrency" popover>
+            <button class="popover-close" popovertarget="popover-concurrency"
+                    popovertargetaction="hide" type="button">
+                <img alt="Concurrency Visualized (enlarged - click to close)"
+                     src="/img/concurrency.jpg">
+            </button>
         </div>
     </section>
 
