@@ -24,10 +24,10 @@
         <div class="column-view">
             <div class="text-block minor-block">
                 <p>
-                    This project (name pending) is a backend implementation of an online image
-                    conversion service. Utilizing Spring Boot, Spring Security, PostgreSQL and
-                    Cloudflare's R2, it offers a solid foundation for helping users convert their
-                    personal images at scale.
+                    The following project is a backend implementation of an online image conversion
+                    service. Utilizing Spring Boot, Spring Security, PostgreSQL and Cloudflare's R2,
+                    it offers a solid foundation for helping users convert their personal images at
+                    scale.
                 </p>
                 <p>
                     For higher throughput, conversions are done concurrently by the server. Multiple
@@ -42,7 +42,8 @@
                 </p>
                 <p>
                     Image storage is handled exclusively by Cloudflare's R2 object storage service
-                    (S3-compliant).
+                    (S3-compliant). It is the intermediary between the client and the backend
+                    workers.
                 </p>
 
             </div>
@@ -66,7 +67,7 @@
                 </p>
                 <p>
                     Postgres plays a vital part in my approach to concurrency, with the task table
-                    acting as a queue for my workers. This is where Postgres truly shines with the
+                    acting as a queue for the workers. This is where Postgres truly shines with the
                     following magical syntax:
                 </p>
                 <pre><code>FOR UPDATE SKIP LOCKED</code></pre>
@@ -82,12 +83,12 @@
                     <code>SELECT</code> are locked for modification (incl. further locking) for the
                     duration of the transaction. However, because <code>FOR UPDATE</code> is a
                     locker itself, it gets stalled by locked row matches. The exact opposite of what
-                    we want for concurrent workers. <code>FOR UPDATE SKIP LOCKED</code> sidesteps
+                    we want for concurrent access. <code>FOR UPDATE SKIP LOCKED</code> sidesteps
                     this issue by ignoring locked rows entirely as if they don't exist.
                 </p>
                 <p>
-                    This way the database both ensures tasks get locked to prevent double claims,
-                    but also continued immediate access for new worker queries.
+                    This way the database both locks tasks to prevent double claims, but also
+                    continues to provide immediate access for new worker queries.
                 </p>
             </div>
         </div>
