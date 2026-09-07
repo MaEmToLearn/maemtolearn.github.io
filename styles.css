@@ -19,7 +19,7 @@
     --color-img-bg: #fff;
 
     /* Page sizing */
-    --size-nav: 6svh;
+    --size-nav: 3.25rem;
     --ratio-min-col: 40%;
     --scaling-min-col: 0.5;
 
@@ -30,7 +30,7 @@
     --font-size: clamp(15px, 1.1vw, 21px);
     --font-size-h1: clamp(32px, 4vw, 48px);
     --font-size-h2: clamp(22px, 3vw, 38px);
-    --font-size-nav: 15px;
+    --font-size-nav: 1rem;
     --font-size-code-ratio: 0.9;
     --line-height: 1.75;
     --border-radius-code: 0.25rem;
