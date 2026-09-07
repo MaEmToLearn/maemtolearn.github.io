@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>ImageConverter</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 
@@ -32,8 +32,7 @@
                 <p>
                     For higher throughput, conversions are done concurrently by the server. Multiple
                     workers are continuously scheduled and query submitted conversion tasks directly
-                    from the database, which acts as the task queue (see
-                    <a href="#concurrency">Concurrency</a>).
+                    from the database, which acts as the task queue (see <a href="#concurrency">Concurrency</a>).
                 </p>
                 <p>
                     Users need an account to access the service and can optionally acquire a product
@@ -45,10 +44,9 @@
                     (S3-compliant). It is the intermediary between the client and the backend
                     workers.
                 </p>
-
             </div>
 
-            <img class="scaling-img" alt="Architectural Overview" src="/img/overview.png">
+            <img alt="Architectural Overview" class="scaling-img" src="/img/overview.png">
         </div>
     </section>
 
@@ -56,7 +54,7 @@
         <h2>Concurrency: Converting multiple images at once</h2>
 
         <div class="column-view">
-            <img class="scaling-img vertical-img" alt="Concurrency Visualized"
+            <img alt="Concurrency Visualized" class="scaling-img vertical-img"
                  src="/img/concurrency.jpg">
 
             <div class="text-block major-block">
@@ -70,14 +68,18 @@
                     acting as a queue for the workers. This is where Postgres truly shines with the
                     following magical syntax:
                 </p>
+
                 <pre><code>FOR UPDATE SKIP LOCKED</code></pre>
+
                 <p>Four words that prevent</p>
+
                 <ul>
                     <li>Duplicate processing</li>
                     <li>Deadlocks</li>
                     <li>Getting stalled by locked rows (compared to plain <code>FOR UPDATE</code>)
                     </li>
                 </ul>
+
                 <p>
                     The first part <code>FOR UPDATE</code> ensures rows returned by
                     <code>SELECT</code> are locked for modification (incl. further locking) for the
