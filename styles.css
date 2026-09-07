@@ -138,7 +138,6 @@ pre code {
     background-color: var(--color-nav-bg);
     display: flex;
     justify-content: space-between;
-    align-content: center;
     padding: var(--padding-nav);
     height: var(--size-nav);
     position: sticky;
