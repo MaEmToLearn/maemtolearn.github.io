@@ -127,7 +127,8 @@ code {
 
 pre code {
     padding: var(--padding-code-block);
-    display: flex;
+    display: block;
+    overflow-x: auto;
 }
 
 /* =================== */
