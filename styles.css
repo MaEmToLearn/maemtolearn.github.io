@@ -20,8 +20,8 @@
 
     /* Page sizing */
     --size-nav: 3.25rem;
-    --ratio-min-col: 40%;
-    --scaling-min-col: 0.5;
+    --ratio-min-col: 33%;
+    --scaling-min-col: 0.33;
 
     /* Text */
     --font-sans: 'Inter';
@@ -143,6 +143,7 @@ pre code {
     height: var(--size-nav);
     position: sticky;
     top: 0;
+    z-index: 100;
     align-items: center;
 }
 
@@ -172,7 +173,7 @@ pre code {
 .page {
     display: flex;
     flex-direction: column;
-    height: calc(100svh - var(--size-nav));
+    min-height: calc(100svh - var(--size-nav));
     width: 100%;
     padding: var(--padding-thin) var(--padding) var(--padding) var(--padding);
     gap: var(--gap-page);
@@ -182,7 +183,7 @@ pre code {
 .column-view {
     display: flex;
     gap: var(--gap-columns);
-    min-height: 0;
+    flex: 1 1 auto;
 }
 
 /* ================== */
@@ -191,12 +192,11 @@ pre code {
 
 .scaling-img {
     display: block;
-    object-fit: contain;
-    min-width: 0;
-}
-
-.vertical-img {
-    max-height: var(--max-size-vertical-img);
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /* ==================== */
@@ -204,7 +204,10 @@ pre code {
 /* ==================== */
 
 .popover-open {
-    display: contents;
+    display: block;
+    position: relative;
+    border: none;
+    background: none;
     cursor: zoom-in;
 }
 
@@ -223,6 +226,8 @@ pre code {
     object-fit: contain;
     max-height: calc(100svh - var(--size-nav));
     max-width: 100%;
+    box-shadow: none;
+    border: none;
 }
 
 [popover]::backdrop {
@@ -253,7 +258,7 @@ pre code {
 
 @media (max-width: 1050px) {
     .page {
-        height: auto;
+        min-height: auto;
     }
 
     .column-view {
@@ -261,8 +266,14 @@ pre code {
     }
 
     .scaling-img {
-        width: 100%;
-        flex: 1 1 auto;
+        position: static;
+        max-width: 100%;
+        height: auto;
+        max-height: none;
+    }
+
+    .vertical-img {
+        max-height: var(--max-size-vertical-img);
     }
 
     .text-block {
