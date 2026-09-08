@@ -143,12 +143,12 @@ pre code {
     height: var(--size-nav);
     position: sticky;
     top: 0;
+    align-items: center;
 }
 
 .navbar__links {
     display: flex;
     gap: var(--gap-nav-links);
-    align-items: center;
     font-family: var(--font-mono), monospace;
     font-size: var(--font-size-nav);
 }
